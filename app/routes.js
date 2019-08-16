@@ -2,6 +2,10 @@ const express = require('express')
 const router = express.Router()
 var err = false;
 
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NotifyKey);
+
+
 // Add your routes here - above the module.exports line
 
 router.get('/', (req, res) => {
@@ -146,6 +150,34 @@ router.get('/register-check', (req, res) => {
 })
 
 router.post('/register-check', (req, res) => {
+
+
+    // Send notification
+    notify
+    .sendEmail(process.env.newregistrationemail, process.env.recipient, {
+       personalisation: {
+        'first-name': req.body['first-name'],        
+        'last-name': req.body['last-name'],    
+        'describe': req.body['describe'],    
+        'licensed': req.body['licensed'],    
+        'email': req.body['email'],    
+        'telephone-number': req.body['telephone-number'],
+        'disabled': req.body['disabled'],
+        'more-detail': req.body['more-detail']
+      }
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err))
+
+    notify
+    .sendEmail(process.env.useremail, req.body['email'], {
+       personalisation: {
+        'first-name': req.body['first-name']
+      }
+    })
+    .then(response => console.log(response))
+    .catch(err => console.error(err))
+
     req.session.data = {}
     res.redirect('register-complete')
 })
