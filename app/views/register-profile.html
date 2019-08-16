@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Register
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+
+
+{% endblock %}
+{% block beforeContent %}<a href="/register" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<section class="gc-section">
+
+    <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                {% if err %}
+                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+                    data-module="govuk-error-summary">
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            {% if describe %}
+                            <li>
+                                <a href="#first-name">Select an option</a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+
+                <form method="POST">
+
+                    <div class="govuk-form-group   {% if describe %}govuk-form-group--error{% endif %}">
+                        <fieldset class="govuk-fieldset" aria-describedby="describe-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l  govuk-!-padding-bottom-4">
+                                <h1 class="govuk-fieldset__heading">
+                                    Which of these best describes you?
+                                </h1>
+                            </legend>
+
+                            <span id="describe-hint" class="govuk-hint">
+                                We'll use this to make sure we offer relevant research opportunities to you.
+                            </span>
+                            {% if describe %}
+                            <span id="changed-name-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Select an option
+                            </span>
+                            {% endif %}
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="describe-7" name="describe" type="radio"
+                                        value="I am a member of the public" {{ checked("describe", "I am a member of the public") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-7">
+                                        I am a member of the public
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="describe-2" name="describe" type="radio"
+                                        value="I work in the gambling industry" {{ checked("describe", "I work in the gambling industry") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-2">
+                                        I work in the gambling industry
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="describe-3" name="describe" type="radio"
+                                        value="I work for a charity" {{ checked("describe", "I work for a charity") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-3">
+                                        I work for a charity
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="describe-4" name="describe" type="radio"
+                                        value="I work in the media/news industry"  {{ checked("describe", "I work in the media/news industry") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-4">
+                                        I work in the media/news industry
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="describe-5" name="describe" type="radio"
+                                        value="I work in the medical profession" {{ checked("describe", "I work in the medical profession") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-5">
+                                        I work in the medical profession
+                                    </label>
+                                </div>
+
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="describe-6" name="describe" type="radio"
+                                        value="I work in the education sector" {{ checked("describe", "I work in the education sector") }}>
+                                    <label class="govuk-label govuk-radios__label" for="describe-6">
+                                        I work in the education sector
+                                    </label>
+                                </div>
+
+
+
+                        </fieldset>
+                    </div>
+
+
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Continue
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

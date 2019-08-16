@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Register
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+
+
+{% endblock %}
+{% block beforeContent %}<a href="/register-profile" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<section class="gc-section">
+
+    <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                {% if err %}
+                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
+                    data-module="govuk-error-summary">
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            {% if licensed %}
+                            <li>
+                                <a href="#first-name">Select an option</a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+                <form method="POST">
+
+                    <div class="govuk-form-group {% if licensed %}govuk-form-group--error{% endif %}">
+                        <fieldset class="govuk-fieldset" aria-describedby="licensed-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-padding-bottom-4">
+                                <h1 class="govuk-fieldset__heading">
+                                    Do you hold a licence issued by the Gambling Commission?
+                                </h1> 
+                            </legend>
+                            {% if licensed %}
+                            <span id="changed-name-error" class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Select an option
+                            </span>
+                            {% endif %}
+                            <div class="govuk-radios">       
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="licensed-7" name="licensed" type="radio"
+                                        value="Yes - Operator licence" {{ checked("licensed", "Yes - Operator licence") }}>
+                                    <label class="govuk-label govuk-radios__label" for="licensed-7">
+                                       Yes - Operator licence
+                                    </label>
+                                </div>                                                          
+                                <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="licensed-2" name="licensed" type="radio"
+                                            value="Yes - Personal licence"  {{ checked("licensed", "Yes - Personal licence") }}>
+                                        <label class="govuk-label govuk-radios__label" for="licensed-2">
+                                            Yes - Personal licence
+                                        </label>
+                                    </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="licensed-3" name="licensed" type="radio"
+                                        value="No"  {{ checked("licensed", "No") }}>
+                                    <label class="govuk-label govuk-radios__label" for="licensed-3">
+                                        No
+                                    </label>
+                                </div>
+                               
+                        </fieldset>
+                    </div>
+
+
+                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                        Continue
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

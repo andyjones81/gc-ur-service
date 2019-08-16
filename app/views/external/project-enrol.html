@@ -1,0 +1,116 @@
+{% extends "layout_external.html" %}
+
+{% block pageTitle %}
+Public Register - Project
+{% endblock %}
+
+{% block heroClass %}
+
+{% endblock %}
+
+{% block heroContent %}
+
+{% endblock %}
+
+
+{% block beforeContent %}<a href="/external/project-detail" class="govuk-back-link">Project details</a>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="gc-section">
+
+    <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+                <h1 class="govuk-heading-l">Enrolling to the Public Register project</h1>
+
+                <p class="govuk-body">Please read the following details and if you are happy to proceed, confirm your
+                    consent to take part in this research project.</p>
+
+                <h2 class="govuk-heading-m">Your consent</h2>
+
+                <p class="govuk-body">Participation is voluntary</p>
+                <p class="govuk-body">...</p>
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h3 class="govuk-fieldset__heading">
+                                Tell us how you'd like to provide feedback
+                            </h3>
+                            
+                        </legend><p class="govuk-body">Feedback is required by <span
+                                class="govuk-!-font-weight-bold">30 August 2019</span></p>
+                        <div class="govuk-radios govuk-radios--small">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio"
+                                    value="online">
+                                <label class="govuk-label govuk-radios__label" for="changed-name">
+                                    Online - through this service
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio"
+                                    value="skype">
+                                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                                    Skype/Google hangouts
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changed-name-3" name="changed-name" type="radio"
+                                    value="phone">
+                                <label class="govuk-label govuk-radios__label" for="changed-name-3">
+                                    Phone call
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changed-name-4" name="changed-name" type="radio"
+                                    value="face">
+                                <label class="govuk-label govuk-radios__label" for="changed-name-4">
+                                    Face to face (Birmingham or elsewhere in the UK)
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+                <p class="govuk-body">If you choose face to face, we will contact you to arrange a suitable date, time and location.</p>
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+                <h2 class="govuk-heading-m">Confirmation</h2>
+                <p class="govuk-body">By confirming your consent you agree to:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>not disclose anything you see or do in this service</li>
+                    <li>not share details of the prototype with anyone, including on social media</li>
+                    <li>not share screenshots or photos of the service with anyone</li>
+                </ul>
+
+                <p class="govuk-body">You or we can withdraw participation in this project at any time without providing
+                    a reason.</p>
+
+
+
+                <a href="/external/project-enrol-complete" class="govuk-button" data-module="govuk-button">
+                    Confirm consent and enrolment
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
