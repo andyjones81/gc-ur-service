@@ -152,33 +152,52 @@ router.get('/register-check', (req, res) => {
 router.post('/register-check', (req, res) => {
 
 
+var firstname = req.session.data['first-name'];
+var lastname = req.session.data['last-name'];
+var describe = req.session.data['describe'];
+var licensed = req.session.data['licensed'];
+var email =  req.session.data['email'];
+var telephone = req.session.data['telephone-number'];
+var disabled = req.session.data['disabled'];
+var moredetail = req.session.data['more-detail'];
+
+
+if(disabled === undefined){
+    disabled = "skipped";
+    moredetail = "skipped";
+}
+
+if(disabled === 'No'){
+    moredetail = "N/A";
+}
+
     // Send notification
     notify
     .sendEmail(process.env.newregistrationemail, process.env.recipient, {
        personalisation: {
-        'first-name': req.body['first-name'],        
-        'last-name': req.body['last-name'],    
-        'describe': req.body['describe'],    
-        'licensed': req.body['licensed'],    
-        'email': req.body['email'],    
-        'telephone-number': req.body['telephone-number'],
-        'disabled': req.body['disabled'],
-        'more-detail': req.body['more-detail']
+        'first-name': firstname,       
+        'last-name': lastname,    
+        'describe': describe,    
+        'licensed': licensed,    
+        'email': email,    
+        'telephone-number': telephone,
+        'disabled': disabled,
+        'more-detail': moredetail
       }
     })
     .then(response => console.log(response))
     .catch(err => console.error(err))
 
     notify
-    .sendEmail(process.env.useremail, req.body['email'], {
+    .sendEmail(process.env.useremail, email, {
        personalisation: {
-        'first-name': req.body['first-name']
+        'first-name': firstname
       }
     })
     .then(response => console.log(response))
     .catch(err => console.error(err))
 
-    req.session.data = {}
+   
     res.redirect('register-complete')
 })
 
