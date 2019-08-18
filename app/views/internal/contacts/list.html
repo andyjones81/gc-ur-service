@@ -1,0 +1,198 @@
+{% extends "layout_internal_wide.html" %}
+
+{% block pageTitle %}
+Projects
+{% endblock %}
+
+{% block heroClass %}
+
+{% endblock %}
+
+{% block heroContent %}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/internal/contacts/index" class="govuk-back-link">Back to contact hub</a>
+{% endblock %}
+
+{% block content %}
+
+<section class="gc-section">
+
+    <div class="govuk-width-container">
+
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+                <div class="gc-app-panel">
+                    <div class="gc-pull-right gc-text-right">
+                        <button onclick="toggleFilter()" id="filter-button" role="button" type="button"
+                            class="govuk-button govuk-button--secondary">Filters</button>
+                    </div>
+                    <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Participant list</h1>
+                    <div class="gc-filter-panel" id="filter-panel" style="display: none;">
+                        <div class="govuk-inset-text">
+                            <h2 class="govuk-heading-m">Filters</h2>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h3 class="govuk-fieldset__heading">
+                          Organisation
+                        </h3>
+                      </legend>
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                            Public
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                            Work in gambling
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="MOD">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+                            Charity
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="DfT">
+                          <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+                            News/Media
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-5" name="organisation" type="checkbox" value="DfT">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation-5">
+                                  Medical
+                                </label>
+                              </div>
+                              <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="organisation-6" name="organisation" type="checkbox" value="DfT">
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation-6">
+                                      Education
+                                    </label>
+                                  </div>
+                      </div>
+                    </fieldset>
+                  </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+            <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        <h3 class="govuk-fieldset__heading">
+                          Disabilities
+                        </h3>
+                      </legend>
+                      <div class="govuk-checkboxes govuk-checkboxes--small">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="disa" name="disa" type="checkbox" value="hmrc">
+                          <label class="govuk-label govuk-checkboxes__label" for="disa">
+                            Yes
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="disa-2" name="disa" type="checkbox" value="employment-tribunal">
+                          <label class="govuk-label govuk-checkboxes__label" for="disa-2">
+                            No
+                          </label>
+                        </div>
+                     
+                     
+                      </div>
+                    </fieldset>
+                  </div>
+    </div>
+    <div class="govuk-grid-column-one-third gc-text-right">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+            Apply filters
+          </button>
+        </div>
+   
+</div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">ID</th>
+                            <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">Email</th>
+                            <th scope="col" class="govuk-table__header">Phone number</th>
+                            <th scope="col" class="govuk-table__header">Disability</th>
+                            <th scope="col" class="govuk-table__header">Created</th>
+                            <th scope="col" class="govuk-table__header">Role</th>
+                            <th scope="col" class="govuk-table__header">Licensed</th>
+                            <th scope="col" class="govuk-table__header">Participation</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body govuk-body-s">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/internal/contacts/details">501</a></td>
+                            <td class="govuk-table__cell">John Gregory</td>
+                            <td class="govuk-table__cell">john.gregory@example.com</td>
+                            <td class="govuk-table__cell">07987981277</td>
+                            <td class="govuk-table__cell">None declared</td>
+                            <td class="govuk-table__cell">11 Aug 2019</td>
+                            <td class="govuk-table__cell">Public</td>
+                            <td class="govuk-table__cell">No</td>
+                            <td class="govuk-table__cell"><a href="/internal/service/feedback">Public registers</a></td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+    function toggleFilter() {
+        var x = document.getElementById("filter-panel");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            document.getElementById("filter-button").innerText = "Close filters";
+        } else {
+            x.style.display = "none";
+            document.getElementById("filter-button").innerText = "Filters";
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,223 @@
+{% extends "layout_internal_wide.html" %}
+
+{% block pageTitle %}
+Projects
+{% endblock %}
+
+{% block heroClass %}
+
+{% endblock %}
+
+{% block heroContent %}
+
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/internal/service/feedback" class="govuk-back-link">Back to feedback list</a>
+{% endblock %}
+
+{% block content %}
+
+<section class="gc-section">
+    <div class="govuk-width-container">
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+
+                <div class="gc-app-panel">
+                    <div class="gc-pull-right gc-text-right">
+                        <a href="" class="govuk-button govuk-button--secondary">Remove from insight</a>
+                    </div>
+                    <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Participant feedback</h1>
+
+                </div>
+
+
+
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+
+                <div class="govuk-inset-text">
+                    <h2 class="govuk-heading-s">Feedback</h2>
+                    <p class="govuk-body">Participant found the search easy to use but being able to search by a region
+                        or
+                        town/city
+                        would be useful</p>
+                </div>
+
+                <div class="govuk-tabs govuk-!-margin-top-9" data-module="govuk-tabs">
+                    <h2 class="govuk-tabs__title">
+                        Contents
+                    </h2>
+                    <ul class="govuk-tabs__list">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                            <a class="govuk-tabs__tab" href="#past-day">
+                                Themes <span class="govuk-tag govuk-!-margin-left-2">1</span>
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#past-week">
+                                Research comments <span class="govuk-tag govuk-!-margin-left-2">0</span>
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#past-month">
+                                Design comments <span class="govuk-tag govuk-!-margin-left-2">0</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <section class="govuk-tabs__panel" id="past-day">
+                        <h2 class="govuk-heading-m">Themes</h2>
+
+                        <p class="govuk-body">
+                            <a href="/internal/service/feedback-theme" class="gc-link-tag">Search features</a>
+                           </p>
+
+                        <details class="govuk-details govuk-!-margin-top-5" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                    Add a theme
+                                </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                <form method="post" action="addtheme">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-!-width-one-half " for="sort">
+                                            Existing themes
+                                        </label>
+                                        <select class="govuk-select govuk-!-width-one-half " id="sort" name="sort">
+                                            <option value="">Select...</option>
+                                            <option value="">ADR information</option>
+                                            <option value="">CEO Information</option>
+                                            <option value="">Charity information</option>
+                                            <option value="">Company House information</option>
+                                            <option value="">Contact details</option>
+                                            <option value="">Search features</option>
+                                        </select>
+                                    </div>
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-!-width-one-half " for="event-name">
+                                            New theme
+                                        </label>
+                                        <input class="govuk-input govuk-!-width-one-half " id="event-name"
+                                            name="event-name" type="text">
+                                    </div>
+                                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                                        Add
+                                    </button>
+                                </form>
+                            </div>
+                        </details>
+                    </section>
+                    <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+                        <h2 class="govuk-heading-m">Research comments</h2>
+                        <p class="govuk-body">No comments </p>
+                        <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                    Add a comment
+                                </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                <form method="post" action="addresearchcomment">
+
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label" for="more-detail">
+                                            Comments
+                                        </label>
+
+                                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"
+                                            aria-describedby="more-detail-hint"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                                        Add
+                                    </button>
+                                </form>
+                            </div>
+                        </details>
+                    </section>
+                    <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+                        <h2 class="govuk-heading-m">Design comments</h2>
+                        <p class="govuk-body">No comments </p>
+                        <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                    Add a comment
+                                </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                <form method="post" action="adddesigncomment">
+
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label" for="more-detail2">
+                                            Comments
+                                        </label>
+
+                                        <textarea class="govuk-textarea" id="more-detail2" name="more-detail2" rows="5"
+                                            aria-describedby="more-detail-hint"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="govuk-button" data-module="govuk-button">
+                                        Add
+                                    </button>
+                                </form>
+                            </div>
+                        </details>
+                    </section>
+
+                </div>
+
+
+
+
+
+
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-m">Details</h2>
+                <table class="govuk-table">
+
+                    <tbody class="govuk-table__body govuk-body-s">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Participant</td>
+                            <td class="govuk-table__cell"><a href="/internal/contacts/detail">501</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Service</td>
+                            <td class="govuk-table__cell"><a href="/internal/service/feedback">Public
+                                    registers</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Feature</td>
+                            <td class="govuk-table__cell"><a href="/internal/service/feedback-feature">Operator
+                                    search</a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Version</td>
+                            <td class="govuk-table__cell"><a href="/internal/service/feedback-version">Alpha Prototype
+                                    2</a></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Date collected</td>
+                            <td class="govuk-table__cell">11 Aug 2019</td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Method</td>
+                            <td class="govuk-table__cell">Remote - Phone</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
