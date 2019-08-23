@@ -60,23 +60,7 @@
               <a href="/" class="gc-header-service-name">
                   User Research Programme
               </a>
-              <button type="button" role="button" class="govuk-header__menu-button govuk-js-header-toggle"
-                  aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
-              <nav>
-                  <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
-                      <li class="govuk-header__navigation-item">
-                          <a class="govuk-header__link" href="/">
-                              Information
-                          </a>
-                      </li>
-                      <li class="govuk-header__navigation-item">
-                          <a class="govuk-header__link" href="/register">
-                             Register
-                          </a>
-                      </li>
-                     
-                  </ul>
-              </nav>
+             
           </div>
       </div>
   </header>
@@ -88,8 +72,9 @@
         {% block beforeContent %}{% endblock %}
     </div>
 </section>
-<main class="govuk-main-wrapper app-main-class govuk-!-margin-bottom-0 govuk-!-padding-bottom-0" id="main-content" role="main">
-    {% block content %}{% endblock %}
+<main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
+    <div class="govuk-width-container">{% block content %}{% endblock %}</div>
+
 </main>
 
 

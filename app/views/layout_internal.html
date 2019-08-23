@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>{% block pageTitle %}{% endblock %} - User Research - Gambling Commission
+    <title>{% block pageTitle %}{% endblock %} - Public Register - Gambling Commission
     </title>
     <meta name="description" content="{% block pageDescription %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -32,116 +32,127 @@
     <script src="/html5-shiv/html5shiv.js"></script>
   <![endif]-->
 
-  <link href="/public/stylesheets/application.css" rel="stylesheet" />
+    <link href="/public/stylesheets/application.css" rel="stylesheet" />
 
     <meta name="author" content="Gambling Commission Digital Team" />
     <meta name="copyright" content="Gambling Commission" />
     <meta name="robots" content="noindex,nofollow" />
     {% block pageMeta %}{% endblock %}
 
-    <style>
-    img{max-width: 100%;}
-    </style>
 
 </head>
+
 <body class="govuk-template__body app-body-class">
-  <script>
-      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-  </script>
- 
-  <header class="gc-header {% block heroClass %}{% endblock%}" role="banner" data-module="govuk-header">
-      <div class="gc-header-container govuk-width-container">
-          <div class="gc-header-logo">
-              <a href="/"><span class="govuk-visually-hidden">Return to the User Research Programme homepage</span>
-                  <img src="https://gc-frontend-cdn.herokuapp.com/public/images/logo.png" class="gc-logo"
-                      alt="Gambling Commission logo">
-              </a>
-          </div>
-          <div class="gc-header-content">
-              <a href="/" class="gc-header-service-name">
-                  User Research
-              </a>
-              <button type="button" role="button" class="govuk-header__menu-button govuk-js-header-toggle"
-                  aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
-              <nav>
-                  <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
-                      <li class="govuk-header__navigation-item">
-                          <a class="govuk-header__link" href="/internal/">
-                              Services
-                          </a>
-                        </li>                    
-                      
-                      <li class="govuk-header__navigation-item">
-                          <a class="govuk-header__link" href="/internal/contacts">
-                             Contacts
-                          </a>
-                      </li>                     
-                      
-                  </ul>
-              </nav>
-          </div>
-      </div>
-  </header>
+    <script>
+        document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    </script>
+    <header class="gc-header {% block heroClass %}{% endblock%}" role="banner" data-module="govuk-header">
+        <div class="gc-header-container govuk-width-container">
+            <div class="gc-header-logo">
+                <a href="/"><span class="govuk-visually-hidden">Return to the User Research Programme homepage</span>
+                    <img src="https://gc-frontend-cdn.herokuapp.com/public/images/logo.png" class="gc-logo"
+                        alt="Gambling Commission logo">
+                </a>
+            </div>
+            <div class="gc-header-content">
+                <a href="/internal/" class="gc-header-service-name">
+                    User Research Programme
+                </a>
+                <button type="button" role="button" class="govuk-header__menu-button govuk-js-header-toggle"
+                    aria-controls="navigation" aria-label="Show or hide Top Level Navigation">Menu</button>
+                <nav>
+                    <ul id="navigation" class="govuk-header__navigation " aria-label="Top Level Navigation">
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/internal/contacts/">
+                                Contacts
+                            </a>
+                        </li>
+
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/internal/projects/">
+                                Projects
+                            </a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/internal/sessions/">
+                                Sessions
+                            </a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/internal/research/">
+                                Research
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
 
-{% block heroContent %}{% endblock %}
-<section>
-    <div class="govuk-width-container">
-        {% block beforeContent %}{% endblock %}
-    </div>
-</section>
-<main class="govuk-main-wrapper app-main-class govuk-!-margin-bottom-0 govuk-!-padding-bottom-0" id="main-content" role="main">
-    {% block content %}{% endblock %}
-</main>
+    {% block heroContent %}{% endblock %}
+    <section>
+        <div class="govuk-width-container">
+            {% block beforeContent %}{% endblock %}
+        </div>
+    </section>
+    <main class="govuk-main-wrapper app-main-class" id="main-content" role="main">
+        <div class="govuk-width-container">{% block content %}{% endblock %}</div>
+
+    </main>
 
 
 
-<section>
-  <div class="gc-footer-top">
-      <div class="govuk-width-container">
-          <a class="gc-return-to-top" href="#">
-              Back to top <span class="govuk-visually-hidden">of the page</span></a>
-      </div>
-  </div>
-</section>
-<footer class="gc-footer " role="contentinfo">
-  <div class="govuk-width-container ">
-      <div class="govuk-footer__meta">
-          <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-              <h3 class="govuk-visually-hidden">Support links</h3>
-              <ul class="govuk-footer__inline-list">
-                  <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link" href="/accessibility" target="_Blank">
-                          Accessibility statement
-                      </a>
-                  </li>
-                  <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link"
-                          href="https://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx"
-                          target="_Blank">
-                          Privacy and cookies
-                      </a>
-                  </li>
-                  <li class="govuk-footer__inline-list-item">
-                      <a class="govuk-footer__link"
-                          href="https://www.gamblingcommission.gov.uk/Footer/Terms-and-conditions.aspx"
-                          target="_Blank">
-                          Terms and conditions
-                      </a>
-                  </li>
-              </ul>
-              <span class="gc-footer-sub">
-                  Built by the Gambling Commission Digital Team
-              </span>
-          </div>
-      </div>
-  </div>
-</footer>
+    <section>
+        <div class="gc-footer-top">
+            <div class="govuk-width-container">
+                <a class="gc-return-to-top" href="#">
+                    Back to top <span class="govuk-visually-hidden">of the page</span></a>
+            </div>
+        </div>
+    </section>
+    <footer class="gc-footer " role="contentinfo">
+        <div class="govuk-width-container ">
+            <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <h3 class="govuk-visually-hidden">Support links</h3>
+                    <ul class="govuk-footer__inline-list">
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/accessibility" target="_Blank">
+                                Accessibility statement
+                            </a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link"
+                                href="https://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx"
+                                target="_Blank">
+                                Privacy and cookies
+                            </a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link"
+                                href="https://www.gamblingcommission.gov.uk/Footer/Terms-and-conditions.aspx"
+                                target="_Blank">
+                                Terms and conditions
+                            </a>
+                        </li>
+                    </ul>
+                    <span class="gc-footer-sub">
+                        Built by the Gambling Commission Digital Team
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/jquery-1.11.3.js"></script>
-<script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/all.js"></script>
-<script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/application.js"></script>
+    <script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/jquery-1.11.3.js"></script>
+    <script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/all.js"></script>
+    <script src="https://gc-frontend-cdn.herokuapp.com/public/javascripts/application.js"></script>
+
+    <script>
+        window.GOVUKFrontend.initAll()
+    </script>
+
 </body>
 
 </html>
-
