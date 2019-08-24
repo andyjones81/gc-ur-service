@@ -25,7 +25,7 @@ Contacts
 
     <div class="govuk-grid-column-one-half">
             <div class="gc-search gc-search--whitebg">
-                    <form method="POST" action="/search">
+                    <form method="POST" action="/internal/contacts/search">
                         <label for="search" class="govuk-label"><span class="govuk-visually-hidden">Search
                                 contacts</span></label>
                         <div class="inner-form govuk-!-margin-bottom-3">
@@ -59,60 +59,27 @@ Contacts
 </div>
 <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-one-quarter"> 
-        
-         
-
-        <h2 class="govuk-heading-m">Filters</h2>      
-
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                    <h3 class="govuk-fieldset__heading">
-                        Licensed
-                    </h3>
-                </legend>
-                <div class="govuk-checkboxes govuk-checkboxes--small">
-                    <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="consented" name="consented" type="checkbox"
-                            value="Yes">
-                        <label class="govuk-label govuk-checkboxes__label" for="consented">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="consented-2" name="consented" type="checkbox"
-                            value="No">
-                        <label class="govuk-label govuk-checkboxes__label" for="consented-2">
-                            No
-                        </label>
-                    </div>
-                   
-                </div>
-            </fieldset>
-        </div>
-        
-      
-        <div class="govuk-form-group">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-                Apply filter
-            </button>  
-        </div>
-       
-
-    </div>
-    <div class="govuk-grid-column-three-quarters">
+   
+    <div class="govuk-grid-column-full">
             <div class="gc-pull-right">
-                    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    <a role="button" href="/internal/contacts/dl" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                             Export all to Excel
-                        </button>
-                    <a href="" class="govuk-button" role="button">
-                            Add contact
-                    </a> 
+                    </a>
+                    <a href="https://userresearchservice.azurewebsites.net" target="_blank" rel="noopener" class="govuk-button" role="button">
+                        Add contact
+                </a> 
                  
     
                    </div>
-        <h2 class="govuk-heading-m">List of contacts</h2>
+        <h2 class="govuk-heading-m">{{contacts.contacts.recordset.length}} contacts</h2>
+
+
+
+        {% if contacts.contacts.recordset.length === 0 %}
+
+        <div class="govuk-inset-text">Nothing found for <span class="govuk-!-font-weight-bold">{{data['search']}}</span>. Do you want to <a href="/internal/contacts/">view the full list</a> instead?</div>
+
+        {% else %}
 
         <table class="govuk-table gc-table-thin">
             <thead class="govuk-table__head">
@@ -126,41 +93,25 @@ Contacts
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
+
+
+{% for i in contacts.contacts.recordset %}
+
                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">709</th>
-                    <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Andy Williams-Jones</td>
-                    <td class="govuk-table__cell">andy@example.com</td>
-                    <td class="govuk-table__cell">Gambling industry</td>
-                    <td class="govuk-table__cell">Yes</td>
+                    <th scope="row" class="govuk-table__header">{{i.ParticipantId}}</th>
+                    <td class="govuk-table__cell"><a href="/internal/contacts/detail/{{i.ParticipantId}}">{{i.FirstName}} {{i.LastName}}</td>
+                    <td class="govuk-table__cell">{{i.Email}}</td>
+                    <td class="govuk-table__cell">{{i.UserType}}</td>
+                    <td class="govuk-table__cell">{{i.Licensed}}</td>
                     <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-tag">NEW</span></td>
                 </tr>
-                <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">708</th>
-                        <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Scott McMullen</td>
-                        <td class="govuk-table__cell">scott@example.com</td>
-                        <td class="govuk-table__cell">Media</td>
-                        <td class="govuk-table__cell">No</td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-tag">NEW</span></td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                            <th scope="row" class="govuk-table__header">707</th>
-                            <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Toni Headen</td>
-                            <td class="govuk-table__cell">toni@example.com</td>
-                            <td class="govuk-table__cell">Public</td>
-                            <td class="govuk-table__cell">No</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                        </tr>
-                        
-                    <tr class="govuk-table__row">
-                            <th scope="row" class="govuk-table__header">706</th>
-                            <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Steven Chapman</td>
-                            <td class="govuk-table__cell">toni@example.com</td>
-                            <td class="govuk-table__cell">Gambling industry</td>
-                            <td class="govuk-table__cell">Yes</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                        </tr>
+
+                {% endfor %}
+     
             </tbody>
         </table>
+
+        {% endif %}
     </div>
 
 

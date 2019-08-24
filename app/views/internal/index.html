@@ -25,55 +25,24 @@ Dashboard
                     <a class="gc-promo__link-wrapper" href="/internal/contacts/">
 
                         <div class="gc-promo__content">
-                            <h2 class="govuk-heading-l govuk-!-margin-bottom-2">113</h2>
+                            <h2 class="govuk-heading-l govuk-!-margin-bottom-2">{{contacts.contacts.recordset.length}}</h2>
                             <p class="gc-promo__description">Contacts</p>
                         </div>
                     </a>
                 </div>
             </div>
 
-            <div class="govuk-grid-column-one-third gc-promo-group__item">
-                <div class="gc-promo app-promo--grey">
-                    <a class="gc-promo__link-wrapper" href="/internal/projects/">
-
-                        <div class="gc-promo__content">
-                            <h2 class="govuk-heading-l govuk-!-margin-bottom-2">1</h2>
-                            <p class="gc-promo__description">Active project</p>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
+            
          
         </div>
 
-        <h3 class="govuk-heading-m">Upcoming sessions</h3>
-
-        <table class="govuk-table">
-            <thead class="govuk-table__head govuk-body-s">
-                <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Project</th>
-                    <th scope="col" class="govuk-table__header">Date and Time</th>
-                    <th scope="col" class="govuk-table__header">Where</th>
-                    <th scope="col" class="govuk-table__header">Who</th>
-                </tr>
-            </thead>
-            <tbody class="govuk-table__body govuk-body-s">
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header"><a href="/internal/projects/project/public-registers">Public registers</a></th>
-                    <th class="govuk-table__cell">23 Aug 2019 - 13:00 to 14:00</th>
-                    <td class="govuk-table__cell">Room 10</td>
-                    <td class="govuk-table__cell"><a href="">P112</a></td>
-                </tr>
-             
-            </tbody>
-        </table>
+ 
     </div>
 
     <div class="govuk-grid-column-one-third">
        
             <div class="gc-search gc-search--whitebg">
-                    <form method="POST" action="/search">
+                    <form method="POST" action="/internal/contacts/search">
                         <label for="search" class="govuk-label"><span class="govuk-visually-hidden">Search
                                 </span></label>
                         <div class="inner-form govuk-!-margin-bottom-3">
@@ -99,12 +68,10 @@ Dashboard
                 </div>
             <div class="gc-text-right">
                   
-                    <a href="" class="govuk-button" role="button">
+                    <a href="https://userresearchservice.azurewebsites.net" target="_blank" rel="noopener" class="govuk-button" role="button">
                             Add contact
                     </a> 
-                    <a href="" class="govuk-button" role="button">
-                            Add project
-                    </a> 
+                   
     
                    </div>
 

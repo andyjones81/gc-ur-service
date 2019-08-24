@@ -1,210 +1,114 @@
 const express = require('express')
 const router = express.Router()
-var err = false;
-
-var NotifyClient = require('notifications-node-client').NotifyClient,
-    notify = new NotifyClient(process.env.NotifyKey);
-
-
-// Add your routes here - above the module.exports line
+const path = require('path')
+const fs = require('fs')
+var jsonexport = require('jsonexport');
 
 router.get('/', (req, res) => {
-    req.session.data = {}
-
     res.render('index')
 })
 
+router.get('/internal', (req, res) => {
 
-router.post('/register', (req, res) => {
+    const getContacts = require('./data/contacts/getContacts.js');
 
-    err = false;
-    var err_first_name = false;
-    var err_last_name = false;
+    let data = getContacts();
+
+    data.then(contacts => {
+
+        res.render('internal/index', {
+            contacts
+        });
+    }).catch(err => {
+        console.log(err);
+    });;
 
 
-    if (req.body['first-name'] === "") {
-        err = true;
-        err_first_name = true;
-    }
-
-    if (req.body['last-name'] === "") {
-        err = true;
-        err_last_name = true;
-    }
-
-    if (req.session.cya === 'y') {
-        res.redirect('register-check')
-    } else {
-
-        if (err) {
-            res.render('register', {
-                err,
-                err_first_name,
-                err_last_name
-            })
-        } else {
-
-            res.redirect('register-profile')
-        }
-    }
 })
 
-router.post('/register-profile', (req, res) => {
+router.get('/internal/contacts/', (req, res) => {
 
-    err = false;
-    var describe = false;
+    const getContacts = require('./data/contacts/getContacts.js');
 
-  
-    if (req.body['describe'] === undefined) {
-        err = true;
-        describe = true;
-    }
+    let data = getContacts();
+
+    data.then(contacts => {
 
 
+        jsonexport(contacts.contacts.recordset, function (err, csv) {
 
-    if (req.session.cya === 'y') {
-        res.redirect('register-check')
-    } else {
-        if (err) {
-            res.render('register-profile', {
-                err,
-                describe
-            })
-        } else {
+            fs.writeFile(__dirname + "/contacts.csv", csv, function (err) {
+                if (err) {
+                    console.log(err)
+                }
+            });
 
-            res.redirect('register-gambling')
-        }
-    }
+        });
+
+
+        res.render('internal/contacts/index', {
+            contacts
+        });
+    }).catch(err => {
+        console.log(err);
+    });;
 })
 
+router.post('/internal/contacts/search', (req, res) => {
 
+    console.log('search')
 
-router.post('/register-gambling', (req, res) => {
-    err = false;
-    var licensed = false;
+    const searchContacts = require('./data/contacts/searchContacts.js');
+    var query = req.body.search
+    let data = searchContacts(query);
 
-  
-    if (req.body['licensed'] === undefined) {
-        err = true;
-        licensed = true;
-    }
-
-
-
-    if (req.session.cya === 'y') {
-        res.redirect('register-check')
-    } else {
-        if (err) {
-            res.render('register-gambling', {
-                err,
-                licensed
-            })
-        } else {
-            res.redirect('register-contact')
-        }
-    }
+    data.then(contacts => {
+        res.render('internal/contacts/index', {
+            contacts
+        });
+    }).catch(err => {
+        console.log(err);
+    });;
 })
 
-router.post('/register-contact', (req, res) => {
-    err = false;
-    var err_email = false;
-    var err_telephone_number = false;
-
-
-    if (req.body['email'] === "") {
-        err = true;
-        err_email = true;
-    }
-
-    if (req.body['telephone-number'] === "") {
-        err = true;
-        err_telephone_number = true;
-    }
-
-    if (req.session.cya === 'y') {
-        res.redirect('register-check')
-    } else {
-
-        if (err) {
-            res.render('register-contact', {
-                err,
-                err_email,
-                err_telephone_number
-            })
-        } else {
-
-            res.redirect('register-optional')
-        }
-    }
+router.get('/internal/contacts/dl', (req, res) => {
+    const file = __dirname + '/contacts.csv';
+    res.download(file);
 })
 
-router.post('/register-optional', (req, res) => {
+router.get('/internal/contacts/detail/:id', (req, res) => {
 
-    res.redirect('register-check')
+    var id = req.params.id;
+
+    const getContact = require('./data/contacts/getContact.js');
+    
+    let data = getContact(id);
+
+    data.then(contact => {
+        res.render('internal/contacts/detail', {
+            contact
+        });
+    }).catch(err => {
+        console.log(err);
+    });;
 })
 
-router.get('/register-check', (req, res) => {
-    req.session.cya = 'y';
+router.get('/internal/contacts/profile/:id', (req, res) => {
 
-    res.render('register-check')
+    var id = req.params.id;
+
+    const getContact = require('./data/contacts/getContact.js');
+    
+    let data = getContact(id);
+
+    data.then(contact => {
+        res.render('internal/contacts/profile', {
+            contact
+        });
+    }).catch(err => {
+        console.log(err);
+    });;
 })
 
-router.post('/register-check', (req, res) => {
-
-
-var firstname = req.session.data['first-name'];
-var lastname = req.session.data['last-name'];
-var describe = req.session.data['describe'];
-var licensed = req.session.data['licensed'];
-var email =  req.session.data['email'];
-var telephone = req.session.data['telephone-number'];
-var disabled = req.session.data['disabled'];
-var moredetail = req.session.data['more-detail'];
-
-
-if(disabled === undefined){
-    disabled = "skipped";
-    moredetail = "skipped";
-}
-
-if(disabled === 'No'){
-    moredetail = "N/A";
-}
-
-    // Send notification
-    notify
-    .sendEmail(process.env.newregistrationemail, process.env.recipient, {
-       personalisation: {
-        'first-name': firstname,       
-        'last-name': lastname,    
-        'describe': describe,    
-        'licensed': licensed,    
-        'email': email,    
-        'telephone-number': telephone,
-        'disabled': disabled,
-        'more-detail': moredetail
-      }
-    })
-    .then(response => console.log(response))
-    .catch(err => console.error(err))
-
-    notify
-    .sendEmail(process.env.useremail, email, {
-       personalisation: {
-        'first-name': firstname
-      }
-    })
-    .then(response => console.log(response))
-    .catch(err => console.error(err))
-
-   
-    res.redirect('register-complete')
-})
-
-router.get('/register-complete', (req, res) => {
-    req.session.data = {}
-
-    res.render('register-complete')
-})
 
 module.exports = router

@@ -1,0 +1,242 @@
+{% extends "layout_internal.html" %}
+
+{% block pageTitle %}
+{{contact.contact.recordset[0].FirstName}} {{contact.contact.recordset[0].LastName}}
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/internal/contacts/" class="govuk-back-link">Back to contacts list</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
+        
+                <h1 class="govuk-heading-l">{{contact.contact.recordset[0].FirstName}} {{contact.contact.recordset[0].LastName}}
+                </h1>
+        
+             
+        
+              
+        
+            </div>
+
+                <div class="govuk-grid-column-one-third">
+
+                        <ul class="govuk-list">
+                            <li>
+                                <a class="govuk-link"
+                                    href="/internal/contacts/detail/{{contact.contact.recordset[0].ParticipantId}}">Summary</a>
+                            </li>
+                            <li>
+                                <a class="govuk-link"
+                                    href="/internal/contacts/profile/{{contact.contact.recordset[0].ParticipantId}}">Profile</a>
+                            </li>
+                            <li>
+                                <a class="govuk-link"
+                                    href="/internal/contacts/participation/{{contact.contact.recordset[0].ParticipantId}}">Participation</a>
+                            </li>
+                
+                        </ul>
+                
+                        <h3 class=" govuk-!-margin-bottom-2">ID</h3>
+                        <div class="govuk-tag">{{contact.contact.recordset[0].ParticipantId}}</div>
+                
+                        <h3 class=" govuk-!-margin-bottom-2">Email</h3>
+                        {{contact.contact.recordset[0].Email}}
+                
+                        <h3 class=" govuk-!-margin-bottom-2">Phone</h3>
+                        {{contact.contact.recordset[0].Phone}}
+                
+                       
+                           
+                
+                    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+       
+            <h2 class="govuk-heading-m">Profile</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{contact.contact.recordset[0].FirstName}} {{contact.contact.recordset[0].LastName}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register">
+                        Change<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{contact.contact.recordset[0].UserType}}
+
+                    {% if contact.contact.recordset[0].UserType === 'Other' %}
+                    - {{contact.contact.recordset[0].UserTypeOther}}
+                    {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-profile">
+                        Change<span class="govuk-visually-hidden"> your description</span>
+                    </a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Licensed
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{contact.contact.recordset[0].Licensed}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-gambling">
+                        Change<span class="govuk-visually-hidden"> are your licensed?</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Method
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {% set method = contact.contact.recordset[0].Method.split(',') %}
+                    {% for item in method  %}
+                    {{item}}
+                    {% if not loop.last %}
+                    <br>
+                    {% endif %}
+                    {% endfor %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-method">
+                        Change<span class="govuk-visually-hidden"> method of participation</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Contact details
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{contact.contact.recordset[0].Email}}
+                    <br />
+                    {{contact.contact.recordset[0].Phone}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-contact">
+                        Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Source
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {% set source = contact.contact.recordset[0].Source.split(',') %}
+                    {% for item in source %}
+                    {{item}}
+
+                    {% if item === 'Other' %}
+                    - {{contact.contact.recordset[0].SourceOther}}
+                    {% endif %}
+
+                    {% if not loop.last %}
+                    <br>
+                    {% endif %}
+                    {% endfor %}
+
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-source">
+                        Change<span class="govuk-visually-hidden"> source</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{contact.contact.recordset[0].Location}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-location">
+                        Change<span class="govuk-visually-hidden"> location</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Equipment
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {% set equipment = contact.contact.recordset[0].Assistive.split(',') %}
+                    {% for item in equipment %}
+                    {{item}}
+
+                    {% if item === 'Other' %}
+                    - {{contact.contact.recordset[0].AssistiveOther }}
+                    {% endif %}
+
+                    {% if not loop.last %}
+                    <br>
+                    {% endif %}
+                    {% endfor %}
+
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/register-optional">
+                        Change<span class="govuk-visually-hidden"> equipment</span>
+                    </a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date registered
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                    {{contact.contact.recordset[0].Created | date('DD MMMM YYYY')}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Retention ends
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                    {{contact.contact.recordset[0].Created | date("add", 3, "years") |date('DD MMMM YYYY')}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+        </dl>
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
