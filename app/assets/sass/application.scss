@@ -73,3 +73,18 @@ $govuk-assets-path: '/govuk/assets/';
   .govuk-table__body{font-size: 14px;}
   .govuk-table__head{ font-size: 14px;}
 }
+
+.gc-text-left{text-align: left; }
+
+.gc-header-container{
+  .gc-search form .inner-form .input-field.third-wrap .btn-search {
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    background: #1d70b8;
+    transition: all .2s ease-out,color .2s ease-out;
+}
+}

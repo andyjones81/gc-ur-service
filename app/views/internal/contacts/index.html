@@ -16,40 +16,42 @@ Contacts
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-one-half">
         <h1 class="govuk-heading-l">Contacts</h1>
   
-
-
     </div>
 
-    <div class="govuk-grid-column-one-third">
-       
-        <div class="gc-search gc-search--whitebg">
-            <form method="POST" action="/search">
-                <label for="search" class="govuk-label"><span class="govuk-visually-hidden">Search
-                        contacts</span></label>
-                <div class="inner-form govuk-!-margin-bottom-3">
-                    <div class="input-field second-wrap">
-                        <input id="search" name="search" type="text" placeholder="Search contacts"
-                            required="required" />
-                    </div>
-                    <div class="input-field third-wrap">
-                        <button data-module="govuk-button" class="btn-search" type="submit"><span
-                                class="govuk-visually-hidden">Search contacts</span>
-                            <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas"
-                                data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path fill="currentColor"
-                                    d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
+    
+
+    <div class="govuk-grid-column-one-half">
+            <div class="gc-search gc-search--whitebg">
+                    <form method="POST" action="/search">
+                        <label for="search" class="govuk-label"><span class="govuk-visually-hidden">Search
+                                contacts</span></label>
+                        <div class="inner-form govuk-!-margin-bottom-3">
+                            <div class="input-field second-wrap">
+                                <input id="search" name="search" type="text" placeholder="Search contacts"
+                                    required="required" />
+                            </div>
+                            <div class="input-field third-wrap">
+                                <button data-module="govuk-button" class="btn-search" type="submit"><span
+                                        class="govuk-visually-hidden">Search contacts</span>
+                                    <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas"
+                                        data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>    
+                     
+                    </form>   
+        
                 </div>
-            </form>
 
-
-        </div>
+              
+  
 
 
     </div>
@@ -57,13 +59,17 @@ Contacts
 </div>
 <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-one-quarter">
-        <h2 class="govuk-heading-m">Filters</h2>
+    <div class="govuk-grid-column-one-quarter"> 
+        
+         
+
+        <h2 class="govuk-heading-m">Filters</h2>      
+
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                     <h3 class="govuk-fieldset__heading">
-                        Consented
+                        Licensed
                     </h3>
                 </legend>
                 <div class="govuk-checkboxes govuk-checkboxes--small">
@@ -81,33 +87,31 @@ Contacts
                             No
                         </label>
                     </div>
+                   
                 </div>
             </fieldset>
         </div>
         
-        <div class="govuk-form-group">
-            <div class="govuk-form-group">
-                <label class="govuk-label govuk-!-width-full" for="sort">
-                    Project
-                </label>
-                <select class="govuk-select govuk-!-width-full" id="sort" name="sort">
-                    <option value="" selected>Not assigned</option>
-                    <option value="all">All</option>
-                    <option value="Public register">Public register</option>
-                </select>
-            </div>
-        </div>
+      
         <div class="govuk-form-group">
             <button type="submit" class="govuk-button" data-module="govuk-button">
                 Apply filter
-            </button>   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                    Export all to Excel
-                </button>
+            </button>  
         </div>
        
 
     </div>
     <div class="govuk-grid-column-three-quarters">
+            <div class="gc-pull-right">
+                    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                            Export all to Excel
+                        </button>
+                    <a href="" class="govuk-button" role="button">
+                            Add contact
+                    </a> 
+                 
+    
+                   </div>
         <h2 class="govuk-heading-m">List of contacts</h2>
 
         <table class="govuk-table gc-table-thin">
@@ -116,19 +120,45 @@ Contacts
                     <th scope="col" class="govuk-table__header">ID</th>
                     <th scope="col" class="govuk-table__header">Name</th>
                     <th scope="col" class="govuk-table__header">Email</th>
-                    <th scope="col" class="govuk-table__header">Projects</th>
-                    <th scope="col" class="govuk-table__header">Consented</th>
+                    <th scope="col" class="govuk-table__header">Type</th>
+                    <th scope="col" class="govuk-table__header">Licensed</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Status</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">700</th>
-                    <td class="govuk-table__cell">Andrew Williams-Jones</td>
-                    <td class="govuk-table__cell">andy.jones1981@live.co.uk</td>
-                    <td class="govuk-table__cell">Public registers</td>
+                    <th scope="row" class="govuk-table__header">709</th>
+                    <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Andy Williams-Jones</td>
+                    <td class="govuk-table__cell">andy@example.com</td>
+                    <td class="govuk-table__cell">Gambling industry</td>
                     <td class="govuk-table__cell">Yes</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-tag">NEW</span></td>
                 </tr>
-
+                <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">708</th>
+                        <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Scott McMullen</td>
+                        <td class="govuk-table__cell">scott@example.com</td>
+                        <td class="govuk-table__cell">Media</td>
+                        <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-tag">NEW</span></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">707</th>
+                            <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Toni Headen</td>
+                            <td class="govuk-table__cell">toni@example.com</td>
+                            <td class="govuk-table__cell">Public</td>
+                            <td class="govuk-table__cell">No</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                        </tr>
+                        
+                    <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">706</th>
+                            <td class="govuk-table__cell"><a href="/internal/contacts/detail/700">Steven Chapman</td>
+                            <td class="govuk-table__cell">toni@example.com</td>
+                            <td class="govuk-table__cell">Gambling industry</td>
+                            <td class="govuk-table__cell">Yes</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                        </tr>
             </tbody>
         </table>
     </div>

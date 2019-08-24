@@ -16,47 +16,55 @@ Projects
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
+        <a href="/internal/projects/new" class="gc-pull-right govuk-button" role="button">New project</a>
         <h1 class="govuk-heading-l">Projects</h1>
+    </div>
+    <div class="govuk-grid-column-full">
 
-        <h2 class="govuk-heading-m">Active projects</h2>
-        <div class="govuk-grid-row gc-promo-group">
-                <div class="govuk-grid-column-one-third gc-promo-group__item">
-                    <div class="gc-promo app-promo--grey">
-                        <a class="gc-promo__link-wrapper" href="/internal/projects/project/public-register">
     
-                            <div class="gc-promo__content">
-                                <h2 class="govuk-heading-m govuk-!-margin-bottom-5">Public registers</h2>
-                                <p class="gc-promo__description">Scott McMullen</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-    
-                
-             
-            </div>
 
-            <h2 class="govuk-heading-m">Past projects</h2>
-            <div class="govuk-grid-row gc-promo-group">
-                    <div class="govuk-grid-column-one-third gc-promo-group__item">
-                        <div class="gc-promo app-promo--grey">
-                            <a class="gc-promo__link-wrapper" href="/internal/contacts/">
-        
-                                <div class="gc-promo__content">
-                                    <h2 class="govuk-heading-m govuk-!-margin-bottom-5">Public registers</h2>
-                                    <p class="gc-promo__description">Scott McMullen</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-        
-                    
-                 
-                </div>
+        <table class="govuk-table gc-table-thin">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Project</th>
+                    <th scope="col" class="govuk-table__header">Lead</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Phase</th>
+                </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a
+                            href="/internal/projects/project/public-registers">Public registers</a></th>
+                    <td class="govuk-table__cell">Scott McMullen</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><span
+                            class="govuk-tag gc-tag--active">ALPHA</span></td>
 
-    </div>    
+                </tr>
 
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a
+                            href="/internal/projects/project/public-registers">Manage and maintain your personal
+                            licence</a></th>
+                    <td class="govuk-table__cell">Andy Williams-Jones</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><span
+                            class="govuk-tag">BETA</span></td>
+
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a
+                            href="/internal/projects/project/public-registers">Apply for a personal functional
+                            licence</a></th>
+                    <td class="govuk-table__cell">Andy Williams-Jones</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><span
+                            class="govuk-tag">LIVE</span></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
 </div>
 
 
