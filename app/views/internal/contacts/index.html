@@ -18,40 +18,40 @@ Contacts
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
         <h1 class="govuk-heading-l">Contacts</h1>
-  
+
     </div>
 
-    
+
 
     <div class="govuk-grid-column-one-half">
-            <div class="gc-search gc-search--whitebg">
-                    <form method="POST" action="/internal/contacts/search">
-                        <label for="search" class="govuk-label"><span class="govuk-visually-hidden">Search
-                                contacts</span></label>
-                        <div class="inner-form govuk-!-margin-bottom-3">
-                            <div class="input-field second-wrap">
-                                <input id="search" name="search" type="text" placeholder="Search contacts"
-                                    required="required" />
-                            </div>
-                            <div class="input-field third-wrap">
-                                <button data-module="govuk-button" class="btn-search" type="submit"><span
-                                        class="govuk-visually-hidden">Search contacts</span>
-                                    <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas"
-                                        data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path fill="currentColor"
-                                            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>    
-                     
-                    </form>   
-        
+        <div class="gc-search gc-search--whitebg">
+            <form method="POST" action="/internal/contacts/search">
+                <label for="search" class="govuk-label"><span class="govuk-visually-hidden">Search
+                        contacts</span></label>
+                <div class="inner-form govuk-!-margin-bottom-3">
+                    <div class="input-field second-wrap">
+                        <input id="search" name="search" type="text" placeholder="Search contacts"
+                            required="required" />
+                    </div>
+                    <div class="input-field third-wrap">
+                        <button data-module="govuk-button" class="btn-search" type="submit"><span
+                                class="govuk-visually-hidden">Search contacts</span>
+                            <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas"
+                                data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
-              
-  
+            </form>
+
+        </div>
+
+
+
 
 
     </div>
@@ -59,25 +59,29 @@ Contacts
 </div>
 <div class="govuk-grid-row">
 
-   
+
     <div class="govuk-grid-column-full">
-            <div class="gc-pull-right">
-                    <a role="button" href="/internal/contacts/dl" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                            Export all to Excel
-                    </a>
-                    <a href="https://ur-registration.azurewebsites.net" target="_blank" rel="noopener" class="govuk-button" role="button">
-                        Add contact
-                </a> 
-                 
-    
-                   </div>
+        <div class="gc-pull-right">
+            <a role="button" href="/internal/contacts/dl" class="govuk-button govuk-button--secondary"
+                data-module="govuk-button">
+                Export all to Excel
+            </a>
+            <a href="https://ur-registration.azurewebsites.net" target="_blank" rel="noopener" class="govuk-button"
+                role="button">
+                Add contact
+            </a>
+
+
+        </div>
         <h2 class="govuk-heading-m">{{contacts.contacts.recordset.length}} contacts</h2>
 
 
 
         {% if contacts.contacts.recordset.length === 0 %}
 
-        <div class="govuk-inset-text">Nothing found for <span class="govuk-!-font-weight-bold">{{data['search']}}</span>. Do you want to <a href="/internal/contacts/">view the full list</a> instead?</div>
+        <div class="govuk-inset-text">Nothing found for <span
+                class="govuk-!-font-weight-bold">{{data['search']}}</span>. Do you want to <a
+                href="/internal/contacts/">view the full list</a> instead?</div>
 
         {% else %}
 
@@ -95,19 +99,21 @@ Contacts
             <tbody class="govuk-table__body">
 
 
-{% for i in contacts.contacts.recordset %}
+                {% for i in contacts.contacts.recordset %}
 
                 <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">{{i.ParticipantId}}</th>
-                    <td class="govuk-table__cell"><a href="/internal/contacts/detail/{{i.ParticipantId}}">{{i.FirstName}} {{i.LastName}}</td>
+                    <td class="govuk-table__cell"><a
+                            href="/internal/contacts/detail/{{i.ParticipantId}}">{{i.FirstName}} {{i.LastName}}</td>
                     <td class="govuk-table__cell">{{i.Email}}</td>
                     <td class="govuk-table__cell">{{i.UserType}}</td>
                     <td class="govuk-table__cell">{{i.Licensed}}</td>
-                    <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-tag">NEW</span></td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><span class="govuk-tag">{{i.Status}}</span>
+                    </td>
                 </tr>
 
                 {% endfor %}
-     
+
             </tbody>
         </table>
 
